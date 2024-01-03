@@ -9,7 +9,7 @@ export let userInformation = {
 
 };
 
-let education = [{
+export let education = [{
     name: 'High School, Lucknow Public School, Lucknow.',
     year: '2018–2019',
     percent: '95%'
@@ -20,18 +20,28 @@ let education = [{
 }, {
     name: 'BCA, Babasaheb Bhimrao Ambedkar University, Lucknow',
     year: '2021-Currently',
-    cgpa: '7.9'
+    percent: '7.9 CGPA'
 }];
 
-let skills = {
-    languages: ['C++', 'Python', 'Racket', 'Java', 'Javascript'],
-    technologies: ['Bootstrap', 'Scss', 'NodeJS (basic)', 'Express (basic)', 'EJS (Medium)'],
-    coursework: [
-        'Data structures and algorithms',
-        'Networks',
-        'Programming Languages A & B (SML, Racket)'
-    ]
-};
+let skills = [
+    {
+        name: 'languages',
+        description: ['C++', 'Python', 'Racket', 'Java', 'Javascript']
+    },
+    {
+        name: 'technologies',
+        description: ['Bootstrap', 'Scss', 'NodeJS (basic)', 'Express (basic)', 'EJS (Medium)']
+    },
+    {
+        name: 'coursework',
+        description: [
+            'Data structures and algorithms',
+            'Networks',
+            'Programming Languages A & B (SML, Racket)'
+        ]
+    }
+];
+
 
 let projects = [
     {

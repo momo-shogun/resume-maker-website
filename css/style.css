@@ -85,7 +85,7 @@ body {
 
 .education-item {
     display: grid;
-    grid-template-columns: 20px 1fr 151px 80px; /* Adjust columns as needed */
+    grid-template-columns: 20px 422px 151px 80px; /* Adjust columns as needed */
     grid-column: 1 / -1; /* Span across all columns */
     align-items: center;
     padding-left: 31px;

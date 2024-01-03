@@ -1,13 +1,4 @@
-export let userInformation = {
-    name: 'Your Name',
-    phone: 1234567890,
-    address: 'Your Street, Your City',
-    gmail: 'negik0609@gmail.com',
-    linkedin: 'www.linkedin.com/in/shogunkrishna',
-    github: 'https://github.com/momo-shogun',
-    about: 'Passionate and adaptive software engineer with a childhood interest in computers, hacking, and modding. Proven problemsolving skills through competitive programming, proficient in modern web development frameworks. Eager to contribute to the tech industry, and I bring quick learning and effective communication. Ready to leverage expertise for innovative software solutions in dynamic environments.',
-
-};
+export let userInformation = JSON.parse(localStorage.getItem('userInformation'));
 
 export let education = [{
     name: 'High School, Lucknow Public School, Lucknow.',
@@ -69,3 +60,15 @@ export let aboutMe = [
     'Avid follower of anime culture, appreciating storytelling, character development, and diverse genres within the medium.'
 ];
 
+
+export function updateUserInformation(){
+    userInformation.name = document.getElementById('name').value || 'Spooder Man';
+    userInformation.phone = document.getElementById('phone').value || 1234567890;
+    userInformation.address = document.getElementById('address').value || 'Your Street, Your City';
+    userInformation.gmail = document.getElementById('gmail').value || 'SpooderMan1234@gmail.com';
+    userInformation.linkedin = document.getElementById('linkedin').value || 'www.linkedin.com/in/spooderMan';
+    userInformation.github = document.getElementById('github').value || 'https://github.com/spooder-man';
+    userInformation.about = document.getElementById('about').value || 'Passionate and adaptive spooder engineer with a childhood interest in climbing walls, webbing, and sticking. Proven problemsolving skills through competitive programming, proficient in modern web development frameworks. Eager to contribute to the tech industry, and I bring quick learning and effective communication. Ready to leverage expertise for innovative software solutions in dynamic environments.';
+
+    localStorage.setItem('userInformation',JSON.stringify(userInformation));
+}

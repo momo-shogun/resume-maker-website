@@ -23,7 +23,7 @@ export let education = [{
     percent: '7.9 CGPA'
 }];
 
-let skills = [
+export let skills = [
     {
         name: 'languages',
         description: ['C++', 'Python', 'Racket', 'Java', 'Javascript']
@@ -43,9 +43,9 @@ let skills = [
 ];
 
 
-let projects = [
+export let projects = [
     {
-        name: 'Tindog',
+        name: 'tindog',
         description: 'A Dating Website For Dogs',
         details: 'Tindog, a playful website crafted in my early programming days. Offers a humorous take on a dog dating platform. Featuring interactive elements and vibrant design.',
         madeWith: 'HTML, CSS, and Bootstrap.'
@@ -57,8 +57,12 @@ let projects = [
         madeWith: 'HTML, CSS, JavaScript, Next.js, Node.js, and EJS.'
     }
 ];
+export let certification = [
+    'Certification 1: Certification Name 1',
+    'Certification 1: Certification Name 1'
+];
 
-let aboutMe = [
+export let aboutMe = [
     'Driven by a fervent passion for Competitive Programming (CP)',
     'Dedicated to the art of web development, I find joy in the process of transforming ideas into functional and aesthetically pleasing websites.',
     'Love exploring different types of music to find comfort and inspiration.',

@@ -12,5 +12,5 @@ export function capitalizeFirstLetter(inputString) {
 
 
 export function redirectToSite() {
-    window.location.href = 'index.html';
+    window.location.href = 'resume.html';
 }

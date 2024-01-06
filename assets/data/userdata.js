@@ -1,5 +1,6 @@
 export let userInformation = JSON.parse(localStorage.getItem('userInformation'));
 
+
 export let education = [{
     name: 'High School, Lucknow Public School, Lucknow.',
     year: '2018–2019',
@@ -62,7 +63,7 @@ export let aboutMe = [
 
 
 export function updateUserInformation(){
-    userInformation.name = document.getElementById('name').value || 'Spooder Man';
+    userInformation.name = document.getElementById('name').value || 'Albert Gomega';
     userInformation.phone = document.getElementById('phone').value || 1234567890;
     userInformation.address = document.getElementById('address').value || 'Your Street, Your City';
     userInformation.gmail = document.getElementById('gmail').value || 'SpooderMan1234@gmail.com';

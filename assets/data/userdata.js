@@ -71,5 +71,6 @@ export function updateUserInformation(){
     userInformation.github = document.getElementById('github').value || 'https://github.com/spooder-man';
     userInformation.about = document.getElementById('about').value || 'Passionate and adaptive spooder engineer with a childhood interest in climbing walls, webbing, and sticking. Proven problemsolving skills through competitive programming, proficient in modern web development frameworks. Eager to contribute to the tech industry, and I bring quick learning and effective communication. Ready to leverage expertise for innovative software solutions in dynamic environments.';
 
+    
     localStorage.setItem('userInformation',JSON.stringify(userInformation));
 }

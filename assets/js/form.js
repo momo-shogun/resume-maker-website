@@ -1,4 +1,4 @@
-import { userInformation,updateUserInformation } from "../data/userdata.js";
+import { userInformation,updateUserInformation,skills } from "../data/userdata.js";
 import { redirectToSite } from "./utils.js";
 
 

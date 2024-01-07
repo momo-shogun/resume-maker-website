@@ -15,24 +15,7 @@ export let education = [{
     percent: '7.9 CGPA'
 }];
 
-export let skills = [
-    {
-        name: 'languages',
-        description: ['C++', 'Python', 'Racket', 'Java', 'Javascript']
-    },
-    {
-        name: 'technologies',
-        description: ['Bootstrap', 'Scss', 'NodeJS (basic)', 'Express (basic)', 'EJS (Medium)']
-    },
-    {
-        name: 'coursework',
-        description: [
-            'Data structures and algorithms',
-            'Networks',
-            'Programming Languages A & B (SML, Racket)'
-        ]
-    }
-];
+export let skills = JSON.parse(localStorage.getItem('skills')) || [];
 
 
 export let projects = [
@@ -62,7 +45,10 @@ export let aboutMe = [
 ];
 
 
-export function updateUserInformation(){
+export function updateUserInformation() {
+    localStorage.removeItem('skills');
+    skills = [];
+
     userInformation.name = document.getElementById('name').value || 'Albert Gomega';
     userInformation.phone = document.getElementById('phone').value || 1234567890;
     userInformation.address = document.getElementById('address').value || 'Your Street, Your City';
@@ -70,7 +56,44 @@ export function updateUserInformation(){
     userInformation.linkedin = document.getElementById('linkedin').value || 'www.linkedin.com/in/spooderMan';
     userInformation.github = document.getElementById('github').value || 'https://github.com/spooder-man';
     userInformation.about = document.getElementById('about').value || 'Passionate and adaptive spooder engineer with a childhood interest in climbing walls, webbing, and sticking. Proven problemsolving skills through competitive programming, proficient in modern web development frameworks. Eager to contribute to the tech industry, and I bring quick learning and effective communication. Ready to leverage expertise for innovative software solutions in dynamic environments.';
+    localStorage.setItem('userInformation', JSON.stringify(userInformation));
 
-    
-    localStorage.setItem('userInformation',JSON.stringify(userInformation));
+    //skills
+    let inputTitles = document.querySelectorAll('.js-input-title');
+    let inputDescriptions = document.querySelectorAll('.js-input-description');
+
+    for (let i = 0; i < inputTitles.length; i++) {
+        let skillName = inputTitles[i].value;
+        let skillDescription = inputDescriptions[i].value;
+        if (skillName) {
+            let temp = {
+                name: skillName,
+                description: skillDescription
+
+            }
+            skills.push(temp);
+        }
+    }
+    localStorage.setItem('skills', JSON.stringify(skills));
+
+    //education
+    let schoolName = document.querySelectorAll('.js-school-name');
+    let schoolStart = document.querySelectorAll('.js-school-start');
+    let schoolStart = document.querySelectorAll('.js-school-start');
+
+
+    for (let i = 0; i < inputTitles.length; i++) {
+        let skillName = inputTitles[i].value;
+        let skillDescription = inputDescriptions[i].value;
+        if (skillName) {
+            let temp = {
+                name: skillName,
+                description: skillDescription
+
+            }
+            skills.push(temp);
+        }
+    }
+    localStorage.setItem('skills', JSON.stringify(skills));
+
 }

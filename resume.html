@@ -9,7 +9,13 @@
 </head>
 
 <body>
-    <div class="resume-container">
+    <div class="download-btn-container">
+        <button id="download-pdf-btn" class="download-pdf-btn">
+            <span>📥</span> Download PDF
+        </button>
+    </div>
+    
+    <div class="resume-container" id="resume-content">
         <div class="js-header header"></div>
 
         <div class="description"></div>
@@ -44,7 +50,10 @@
         </div>
     </div>
 
+    <!-- html2pdf library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script type="module" src="/assets/js/resume.js"></script>
+    <script src="/assets/js/pdf-download.js"></script>
 
 </body>
 </html>

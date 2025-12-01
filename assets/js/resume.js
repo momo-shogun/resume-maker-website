@@ -18,8 +18,8 @@ header.innerHTML =
     </div>
 
     <div class="right-header">
-    <a href="https://github.com/yourusername" target="_blank">${userInformation.github}</a>
-    <a href="https://www.linkedin.com/in/yourusername" target="_blank">${userInformation.linkedin}</a>
+    <a href="${userInformation.github || '#'}" target="_blank">${userInformation.github || ''}</a>
+    <a href="${userInformation.linkedin || '#'}" target="_blank">${userInformation.linkedin || ''}</a>
     </div>`
 
 let description = document.querySelector('.description');
@@ -54,10 +54,14 @@ document.querySelector('.js-skill-list').innerHTML = html;
 html = '';
 
 projects.forEach((item) => {
-    html += `<p class="project-item">${capitalizeFirstLetter(item.name)} ${item.description}:</p>
-                <p class="project-detail"><strong> - </strong> ${capitalizeFirstLetter(item.details)}</p>
-                <p class="project-detail"><strong> - </strong>Utilized: ${item.madeWith}
-            </p>`
+    let descriptionPart = item.description ? ` ${item.description}:` : ':';
+    html += `<p class="project-item">${capitalizeFirstLetter(item.name)}${descriptionPart}</p>`;
+    if (item.details) {
+        html += `<p class="project-detail"><strong> - </strong> ${capitalizeFirstLetter(item.details)}</p>`;
+    }
+    if (item.madeWith) {
+        html += `<p class="project-detail"><strong> - </strong>Utilized: ${item.madeWith}</p>`;
+    }
 })
 
 document.querySelector('.js-project-details').innerHTML = html;
@@ -66,7 +70,7 @@ html = '';
 aboutMe.forEach((item) => {
     html += `<div>
                 <span class="bullet">&#8226;</span>
-                ${item}
+                <span>${item}</span>
             </div>`
 })
 document.querySelector('.js-interest').innerHTML = html;

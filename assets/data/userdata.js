@@ -1,4 +1,12 @@
-export let userInformation = JSON.parse(localStorage.getItem('userInformation'));
+export let userInformation = JSON.parse(localStorage.getItem('userInformation')) || {
+    name: '',
+    phone: '',
+    address: '',
+    gmail: '',
+    linkedin: '',
+    github: '',
+    about: ''
+};
 
 
 export let education = JSON.parse(localStorage.getItem('education')) || [];
@@ -6,20 +14,7 @@ export let education = JSON.parse(localStorage.getItem('education')) || [];
 export let skills = JSON.parse(localStorage.getItem('skills')) || [];
 
 
-export let projects = [
-    {
-        name: 'tindog',
-        description: 'A Dating Website For Dogs',
-        details: 'Tindog, a playful website crafted in my early programming days. Offers a humorous take on a dog dating platform. Featuring interactive elements and vibrant design.',
-        madeWith: 'HTML, CSS, and Bootstrap.'
-    },
-    {
-        name: 'Course Website',
-        description: '',
-        details: 'Inspired by platforms like Coursera, is a comprehensive online learning hub.',
-        madeWith: 'HTML, CSS, JavaScript, Next.js, Node.js, and EJS.'
-    }
-];
+export let projects = JSON.parse(localStorage.getItem('projects')) || [];
 
 export let certification = JSON.parse(localStorage.getItem('certification')) || [];
 
@@ -29,19 +24,37 @@ export let aboutMe = JSON.parse(localStorage.getItem('aboutMe')) || [];
 
 
 export function updateUserInformation() {
-    localStorage.removeItem('skills','education','certificate','aboutMe');
+    localStorage.removeItem('skills');
+    localStorage.removeItem('education');
+    localStorage.removeItem('certification');
+    localStorage.removeItem('aboutMe');
+    localStorage.removeItem('projects');
     skills = [];
     education = [];
     certification = [];
     aboutMe = [];
+    projects = [];
 
-    userInformation.name = document.getElementById('name').value || 'Albert Gomega';
-    userInformation.phone = document.getElementById('phone').value || 1234567890;
-    userInformation.address = document.getElementById('address').value || 'Your Street, Your City';
-    userInformation.gmail = document.getElementById('gmail').value || 'SpooderMan1234@gmail.com';
-    userInformation.linkedin = document.getElementById('linkedin').value || 'www.linkedin.com/in/spooderMan';
-    userInformation.github = document.getElementById('github').value || 'https://github.com/spooder-man';
-    userInformation.about = document.getElementById('about').value || 'Passionate and adaptive spooder engineer with a childhood interest in climbing walls, webbing, and sticking. Proven problemsolving skills through competitive programming, proficient in modern web development frameworks. Eager to contribute to the tech industry, and I bring quick learning and effective communication. Ready to leverage expertise for innovative software solutions in dynamic environments.';
+    // Initialize userInformation if it doesn't exist
+    if (!userInformation) {
+        userInformation = {
+            name: '',
+            phone: '',
+            address: '',
+            gmail: '',
+            linkedin: '',
+            github: '',
+            about: ''
+        };
+    }
+
+    userInformation.name = document.getElementById('name').value || '';
+    userInformation.phone = document.getElementById('phone').value || '';
+    userInformation.address = document.getElementById('address').value || '';
+    userInformation.gmail = document.getElementById('gmail').value || '';
+    userInformation.linkedin = document.getElementById('linkedin').value || '';
+    userInformation.github = document.getElementById('github').value || '';
+    userInformation.about = document.getElementById('about').value || '';
     localStorage.setItem('userInformation', JSON.stringify(userInformation));
 
     //skills
@@ -86,6 +99,23 @@ export function updateUserInformation() {
     localStorage.setItem('education', JSON.stringify(education));
 
     //Projects 
+    let projectTitles = document.querySelectorAll('.proj_title');
+    let projectDescriptions = document.querySelectorAll('.proj_description');
+
+    for (let i = 0; i < projectTitles.length; i++) {
+        let projTitle = projectTitles[i].value;
+        let projDescription = projectDescriptions[i].value;
+        if (projTitle) {
+            let temp = {
+                name: projTitle,
+                description: '',
+                details: projDescription || '',
+                madeWith: ''
+            }
+            projects.push(temp);
+        }
+    }
+    localStorage.setItem('projects', JSON.stringify(projects));
 
     //Certifications
     let certificate = document.querySelectorAll('.js-certificate');
